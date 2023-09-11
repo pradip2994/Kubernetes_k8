@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo-app  
+  labels:
+    app: todo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: todo
+  template:
+    metadata:
+      labels:
+        app: todo
+    spec:
+      containers:
+      - name: todo-app
+        image: pradipkv/todo_app
+        env:
+        - name: DB-PORT
+          valueFrom:
+            configMapKeyRef: 
+              name: test-configmap
+              key: db-port
+        ports:
+        - containerPort: 8000
