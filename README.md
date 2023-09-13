@@ -79,9 +79,8 @@ You will see that pod is created.
 
 Create pod using command 
 
-```
 $Kubectl apply -f <file_name>
-
+```
 $kubectl apply -f pod.yaml
 ```
 
@@ -111,14 +110,14 @@ $minikube ssh
 ```
 Then you will do 
 ```
-curl <ip\_address>
+curl <ip_address>
 ```
 you can see that the application is running. 
 
 ![Aspose Words cc492136-3d53-4fb8-b086-f64bbd7f8b4a 013](https://github.com/pradip2994/Kubernetes_k8/assets/124191442/7fb8ad7d-226c-4995-8718-e1dfe1c5a387)
 
 
-If you want to delete pod use command **kubectl delete pod <pod\_name>**
+If you want to delete pod use command **kubectl delete pod <pod_name>**
 
 ```
 $kubectl delete pod nginx
@@ -130,7 +129,7 @@ Using command kubectl describe pod <name\_of\_the \_pod> and kubectl logs <pod>
 Example: **kubectl describe pod nginx** and **kubectl logs nginx**
 
 ```
-kubectl describe pod <name\_of\_the \_pod>
+kubectl describe pod <name_of_the_pod>
 ```
 Using this you will get the status of everything inside the pod, including whether the pod is currently running, if there are errors within the pod, what those errors are, and any issues with the pod. 
 
@@ -216,7 +215,7 @@ Example, Suppose a user has defined two replicas in deployment. The Deployment w
 
 **Apply the deployment** 
 
-kubectl apply -f <file\_name>
+kubectl apply -f <file_name>
 ```
 $kubectl apply -f deployment.yaml
 ```
@@ -292,12 +291,12 @@ Types of Services are:
 
 ## ClusterIP Service for accessing the todo-app from within the cluster
 
-Create deployment file, todo\_app\_deployment.yaml
+Create deployment file, todo_app_deployment.yaml
 
 ![Aspose Words cc492136-3d53-4fb8-b086-f64bbd7f8b4a 021](https://github.com/pradip2994/Kubernetes_k8/assets/124191442/f5a44078-51ca-4b4f-aa65-1c729c1c3e6c)
 
 
-Create ClusterIP service,  service\_clusterip.yaml
+Create ClusterIP service,  service_clusterip.yaml
 
 
 ![Aspose Words cc492136-3d53-4fb8-b086-f64bbd7f8b4a 022](https://github.com/pradip2994/Kubernetes_k8/assets/124191442/dfac4625-3084-4b07-96d4-1408126282cc)
@@ -308,7 +307,7 @@ Service is named **todo-app-clusterip** and is of type **ClusterIP**. The select
 Then apply the ClusterIP Service definition using the 
 
 ```
-$kubectl apply -f service\_clusterip.yaml
+$kubectl apply -f service_clusterip.yaml
 ```
 Then to get the IP address of the ClusterIP Service:
 
@@ -336,7 +335,7 @@ You should see the response from the todo-app-clusterip
 
 ## NodePort Service for accessing the todo-app from outside the cluster
 
-Create nodeport service, service\_nodeports.yaml 
+Create nodeport service, service_nodeports.yaml 
 
 ![Aspose Words cc492136-3d53-4fb8-b086-f64bbd7f8b4a 025](https://github.com/pradip2994/Kubernetes_k8/assets/124191442/ca596856-1c34-41c3-affc-a576b65a0590)
 
@@ -346,7 +345,7 @@ Service type is set to **NodePort**. This section defines the port mapping for t
 Then apply the Service definition using below command
 
 ```
-$kubectl apply -f service\_nodeports.yaml
+$kubectl apply -f service_nodeports.yaml
 ```
 
 The kubectl get svc command is used to list Services in a Kubernetes cluster. 
@@ -372,7 +371,7 @@ You should see the response from the todo-app-nodeport.
 
 ## LoadBalancer Service for accessing the todo-app from outside the cluster
 
-Create load balancer service, service\_loadbalancer.yaml
+Create load balancer service, service_loadbalancer.yaml
 
 ![Aspose Words cc492136-3d53-4fb8-b086-f64bbd7f8b4a 027](https://github.com/pradip2994/Kubernetes_k8/assets/124191442/13f7179d-d881-4dba-a324-5b5e4f4fd809)
 
@@ -382,7 +381,7 @@ Service is named **todo-app-lb** and is of type **LoadBalancer**. The selector *
 Then apply the LoadBalancer Service definition using the
 
 ```
-$kubectl apply -f service\_loadbalancer.yml
+$kubectl apply -f service_loadbalancer.yml
 
 $kubectl get svc
 
@@ -506,7 +505,7 @@ $kubectl port-forward svc/todo-app-nodeport 8000:8000 --address 0.0.0.0
 
 **Access your todo-app**
 
-Access the todo-app using **Ec2\_ipaddress:8000**
+Access the todo-app using **Ec2_ipaddress:8000**
 
 ![Aspose Words cc492136-3d53-4fb8-b086-f64bbd7f8b4a 035](https://github.com/pradip2994/Kubernetes_k8/assets/124191442/473cb19b-c8df-4764-8664-72a0409fa543)
 
@@ -585,7 +584,7 @@ In deployment manifest include secret.
 Then apply, kubectl apply -f deployment.yml -n <namespace-name>
 
 ```
-$kubectl apply -f todo\_app\_deploy.yaml
+$kubectl apply -f todo_app_deploy.yaml
 ```
 
 To verify that the Secret has been created
@@ -610,7 +609,7 @@ We can see that db-pass is showing 11 bytes, which indicates that db-pass is enc
 
 Volumes are a way to manage and persist data in containers. They allow you to decouple your containerized application from the underlying storage infrastructure and provide mechanisms for sharing data between containers, pods, and even across nodes in a cluster. 
 
-**Persistent Volume** 
+### Persistent Volume
 
 Persistent Volume (PV) is a piece of storage in the cluster, which can be provisioned either dynamically or manually by an administrator. A Persistent Volume Claim (PVC) is a request for storage, and it can be made by both users and applications within the cluster. 
 
@@ -620,10 +619,11 @@ Create **persistence\_volume.yaml**
 Create **persistent\_volumeclaim.yaml**
 
 Then apply
+```
+$kubectl apply -f persistence_volume.yaml
 
-**$kubectl apply -f persistence\_volume.yaml**
-
-**$kubectl apply -f persistent\_volumeclaim.yaml**
+$kubectl apply -f persistent_volumeclaim.yaml
+```
 
 To use the Persistent Volume Claim in your Deployment file, todo-app-pvc-deploy.yaml. You should add a volume and a volumeMount section to the container definition, which references the Persistent Volume Claim.
 
@@ -650,7 +650,7 @@ $kubectl get pv
 Connect to a Pod in your Deployment using 
 
 ```
-$kubectl exec -it <pod\_name> -- /bin/bash
+$kubectl exec -it <pod_name> -- /bin/bash
 ```
 
 Create file inside pod in app directory.
@@ -678,7 +678,7 @@ In the same way, Kubernetes uses Namespaces to keep your computer programs and s
 Now lets create a Namespace for your Deployment.
 
 ```
-$kubectl create namespace <namespace\_name>
+$kubectl create namespace <namespace_name>
 ```
 
 Now include namespace in deployment manifest. 
@@ -686,7 +686,7 @@ Now include namespace in deployment manifest.
 Then apply deployment,
 
 ```
-$kubectl apply -f <deployment\_name> -n <namespace\_name>
+$kubectl apply -f <deployment_name> -n <namespace_name>
 ```
 
 ![Aspose Words cc492136-3d53-4fb8-b086-f64bbd7f8b4a 047](https://github.com/pradip2994/Kubernetes_k8/assets/124191442/84bfd5dc-e22b-4b03-8dad-03302e8760ab)
@@ -701,7 +701,7 @@ $kubectl get namespace
 Now to confirm that the namespace has been created or not.
 
 ```
-$kubectl get deploy -n <namespace\_name>
+$kubectl get deploy -n <namespace_name>
 ```
 
 ![Aspose Words cc492136-3d53-4fb8-b086-f64bbd7f8b4a 048](https://github.com/pradip2994/Kubernetes_k8/assets/124191442/42651b0e-728c-4f69-863d-b50af026bd56)
