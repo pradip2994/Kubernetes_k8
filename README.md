@@ -61,7 +61,7 @@ $kubectl get nodes
 ![Aspose Words cc492136-3d53-4fb8-b086-f64bbd7f8b4a 008](https://github.com/pradip2994/Kubernetes_k8/assets/124191442/b681a2ad-d877-4f48-9be0-5189e22059da)
 
 
-### Create a folder, inside the folder create a pod.yaml file for nginx.
+## Create a folder, inside the folder create a pod.yaml file for nginx.
 
 ![Aspose Words cc492136-3d53-4fb8-b086-f64bbd7f8b4a 009](https://github.com/pradip2994/Kubernetes_k8/assets/124191442/2b45eca3-d336-4679-be58-3a0b83b9eca6)
 
@@ -172,7 +172,7 @@ A Deployment provides a configuration for updates to Pods and ReplicaSets. You d
 
 Example, Suppose a user has defined two replicas in deployment. The Deployment will create two pods. What a ReplicaSet will do is ensure that these two pods maintain the desired state of resources. It is a Kubernetes controller that implements the autoscaling features for your pods.
 
-**Create one Deployment file to deploy  nginx with"Auto-healing" and "Auto-Scaling" feature**
+## Create one Deployment file to deploy nginx with"Auto-healing" and "Auto-Scaling" feature
 
 **Create a file deployment.yaml**
 
@@ -256,7 +256,7 @@ kubectl get all is used in Kubernetes to retrieve information about various reso
 $kubectl get all
 ```
 
-### Kubernetes Services
+## Kubernetes Services
 
 Services are responsible for providing a stable network endpoint (IP address and port) for a set of Pods that match a certain label selector. They act as a load balancer or routing layer, directing incoming traffic to one of the matching Pods based on the Service's configuration.
 
@@ -290,7 +290,7 @@ Types of Services are:
 
 
 
-**ClusterIP Service for accessing the todo-app from within the cluster**
+## ClusterIP Service for accessing the todo-app from within the cluster
 
 Create deployment file, todo\_app\_deployment.yaml
 
@@ -334,7 +334,7 @@ You should see the response from the todo-app-clusterip
 
 ![Aspose Words cc492136-3d53-4fb8-b086-f64bbd7f8b4a 024](https://github.com/pradip2994/Kubernetes_k8/assets/124191442/5727f25e-1432-42cd-9c71-15ec168f47f1)
 
-#### NodePort Service for accessing the todo-app from outside the cluster
+## NodePort Service for accessing the todo-app from outside the cluster
 
 Create nodeport service, service\_nodeports.yaml 
 
@@ -370,7 +370,7 @@ You should see the response from the todo-app-nodeport.
 ![Aspose Words cc492136-3d53-4fb8-b086-f64bbd7f8b4a 026](https://github.com/pradip2994/Kubernetes_k8/assets/124191442/cba2d379-7ed9-4415-967c-f591be9b9ae7)
 
 
-#### LoadBalancer Service for accessing the todo-app from outside the cluster
+## LoadBalancer Service for accessing the todo-app from outside the cluster
 
 Create load balancer service, service\_loadbalancer.yaml
 
@@ -403,7 +403,7 @@ You should see the response from the todo-app.
 ![Aspose Words cc492136-3d53-4fb8-b086-f64bbd7f8b4a 029](https://github.com/pradip2994/Kubernetes_k8/assets/124191442/2c90cc10-8e07-44c4-950b-467699b95ce6)
 
 
-### Kubernetes Ingress
+## Kubernetes Ingress
 
 Before moving to the ingress, let's understand why Ingress were introduced. Two problems were faced before when we were using load balancers type, Kubernetes load balancer were there but load balancer were missing below capabilities.
 
@@ -511,7 +511,7 @@ Access the todo-app using **Ec2\_ipaddress:8000**
 ![Aspose Words cc492136-3d53-4fb8-b086-f64bbd7f8b4a 035](https://github.com/pradip2994/Kubernetes_k8/assets/124191442/473cb19b-c8df-4764-8664-72a0409fa543)
 
 
-### ConfigMaps and Secrets
+## ConfigMaps and Secrets
 
 **ConfigMaps** are Kubernetes objects used for storing configuration data in key-value pairs. They are intended for non-sensitive data, such as environment variables, configuration files, or command-line arguments for containers. To use ConfigMaps, we can Inject ConfigMap data into pods as environment variables and can also Mount ConfigMap data as files in a container's file system.
 
@@ -606,7 +606,7 @@ $kubectl describe secret dbpass-secret
 
 We can see that db-pass is showing 11 bytes, which indicates that db-pass is encrypted.
 
-### Volumes
+## Volumes
 
 Volumes are a way to manage and persist data in containers. They allow you to decouple your containerized application from the underlying storage infrastructure and provide mechanisms for sharing data between containers, pods, and even across nodes in a cluster. 
 
@@ -667,7 +667,7 @@ To access the data stored in the Persistent Volume from within the Pod go inside
 
 In the above image we can see that file is showing in /app.
 
-### Kubernetes Namespaces
+## Kubernetes Namespaces
 
 Namespace is a logical and virtual cluster within a physical Kubernetes cluster. Namespaces provide a way to partition and isolate resources within the same cluster. They are used to organize and segregate objects such as Pods, Services, ConfigMaps, Secrets, and more. 
 
@@ -707,7 +707,7 @@ $kubectl get deploy -n <namespace\_name>
 ![Aspose Words cc492136-3d53-4fb8-b086-f64bbd7f8b4a 048](https://github.com/pradip2994/Kubernetes_k8/assets/124191442/42651b0e-728c-4f69-863d-b50af026bd56)
 
 
-### RBAC ( Role Based Access Control )
+## RBAC ( Role Based Access Control )
 
 RBAC is a crucial component of securing your Kubernetes cluster, helping you manage access control and reduce the risk of unauthorized or malicious actions within the cluster. It is a fundamental aspect of Kubernetes security and is essential for managing multi-tenant environments and complex containerized applications.
 
