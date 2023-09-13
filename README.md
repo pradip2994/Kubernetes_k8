@@ -326,7 +326,7 @@ $minikube ssh
 Make a curl request to the ClusterIP Service using its IP address:
 
 ```
-$curl -L <cluster-ip>:<service-port>** 
+$curl -L <cluster-ip>:<service-port>
 ```
 
 You should see the response from the todo-app-clusterip
