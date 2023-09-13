@@ -226,7 +226,7 @@ $kubectl apply -f deployment.yaml
 kubectl get pods will list and display information about pods.
 
 ```
-$kubectl get pods**
+$kubectl get pods
 ```
 kubectl get deploy will list and display information about deployments.
 
